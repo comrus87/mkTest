@@ -1,0 +1,26 @@
+.page-main {
+  display: flex;
+}
+
+.page-main__button {
+  margin: 492px auto 0;
+}
+
+.button {
+  display: block;
+  color: $white-color;
+  border: none;
+  border-radius: 3px;
+  font-family: $roboto;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 16px;
+  text-align: center;
+  padding: 13px 0;
+  outline: none;
+}
+
+.page-main__button {
+  width: 200px;
+  background: #558CB7;
+}

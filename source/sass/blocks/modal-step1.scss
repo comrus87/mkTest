@@ -1,0 +1,78 @@
+.overlay-modal {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 3;
+}
+
+.overlay-modal--close {
+  display: none;
+}
+
+.overlay-modal--open {
+  display: block;
+}
+
+.modal-step1 {
+  position: absolute;
+  width: 480px;
+  top: 138px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  background-color: $white-color;
+}
+
+.modal-step1__wrap {
+  padding: 39px 41px 0 39px;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.modal-step1__form {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.modal-step1__require-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.modal-step1__title {
+  font-family: $roboto;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 28px;
+  color: $black-color;
+  margin: 0;
+}
+
+.modal-step1__close {
+  position: absolute;
+  background: url("../img/close.svg") center no-repeat;
+  border: none;
+  width: 19px;
+  height: 19px;
+  outline: none;
+  cursor: pointer;
+  top: 37px;
+  right: 48px;
+
+  &:hover,
+  &:focus {
+    background: url("../img/close-active.svg");
+  }
+}
+
+.modal-step1__label {
+  font-family: $roboto;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 16px;
+}

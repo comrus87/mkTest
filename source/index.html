@@ -4,10 +4,51 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Стартовый шаблон</title>
+  <title>Тестовое задание</title>
   <link rel="stylesheet" href="css/style.min.css">
 </head>
 <body>
-  <h1>Добро пожаловать в Лигу А.</h1>
+  <main class="page-main">
+    <button class="page-main__button button" type="button"> Регистрация </button>
+  </main>
+  <div class="overlay-modal">
+    <div class="modal-step1">
+      <div class="modal-step1__wrap">
+        <h1 class="modal-step1__title"> Регистрация </h1>
+        <button class="modal-step1__close" type="button"><span class="visually-hidden">Закрыть окно</span></button>
+
+        <form class="modal-step1__form" method="post" action="#">
+
+          <label for="modal-email" class="modal-step1__label">E-mail</label>
+          <input class="modal-step1__input" type="text" id="modal-email" required>
+
+          <label for="modal-nickname" class="modal-step1__label">Никнейм</label>
+          <input class="modal-step1__input" type="text" id="modal-nickname" placeholder="frontedDeveloper" required>
+
+          <label for="modal-password" class="modal-step1__label">Пароль</label>
+          <input class="modal-step1__input" type="text" id="modal-password" required>
+
+          <p class="modal-step1__require-text"> Пароль должен содержать:</p>
+          <ul class="modal-step1__require-list">
+            <li class="modal-step1__require-item">от 6 до 32 символов</li>
+            <li class="modal-step1__require-item">цифру</li>
+            <li class="modal-step1__require-item">заглавную и строчкую буквы</li>
+          </ul>
+          <div class="modal-step1__error-nickname"> Пароль не должен совпадать с Никнеймом </div>
+
+          <label for="repeat-password" class="modal-step1__label">Пароль еще раз</label>
+          <input class="modal-step1__input" type="text" id="repeat-password" required>
+          <div class="modal-step1__error-repeat"> Введённые пароли не совпадают </div>
+
+          <input class="visually-hidden modal-step1__checkbox" type="checkbox" id="modal-agree" name="agree" checked>
+          <label class="modal-step1__label-checkbox" for="modal-agree">Я принимаю условия
+          <a href="about:blank" class="modal-step1__link" target="_blank" > Пользовательского соглашения </a> </label>
+
+          <button class="modal-step1__button button" type="button"> Зарегистрироваться </button>
+        </form>
+
+      </div>
+    </div>
+  </div>
 </body>
 </html>

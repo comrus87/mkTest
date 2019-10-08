@@ -11,44 +11,132 @@
   <main class="page-main">
     <button class="page-main__button button" type="button"> Регистрация </button>
   </main>
-  <div class="overlay-modal">
-    <div class="modal-step1">
-      <div class="modal-step1__wrap">
-        <h1 class="modal-step1__title"> Регистрация </h1>
-        <button class="modal-step1__close" type="button"><span class="visually-hidden">Закрыть окно</span></button>
+  <div class="overlay-modal overlay-modal--close">
+    <div class="modal">
+      <div class="modal__wrap">
+        <h1 class="modal__title"> Регистрация </h1>
+        <button class="modal__close" type="button"><span class="visually-hidden">Закрыть окно</span></button>
 
-        <form class="modal-step1__form" method="post" action="#">
+        <form class="modal__form" method="post" action="#">
 
-          <label for="modal-email" class="modal-step1__label">E-mail</label>
-          <input class="modal-step1__input" type="text" id="modal-email" required>
+          <div class="modal-step1">
 
-          <label for="modal-nickname" class="modal-step1__label">Никнейм</label>
-          <input class="modal-step1__input" type="text" id="modal-nickname" placeholder="frontedDeveloper" required>
+            <label for="modal-email" class="modal-step1__label">E-mail</label>
+            <input class="modal-step1__input" type="text" id="modal-email" required>
 
-          <label for="modal-password" class="modal-step1__label">Пароль</label>
-          <input class="modal-step1__input" type="text" id="modal-password" required>
+            <div class="error-email error-form"></div>
 
-          <p class="modal-step1__require-text"> Пароль должен содержать:</p>
-          <ul class="modal-step1__require-list">
-            <li class="modal-step1__require-item">от 6 до 32 символов</li>
-            <li class="modal-step1__require-item">цифру</li>
-            <li class="modal-step1__require-item">заглавную и строчкую буквы</li>
-          </ul>
-          <div class="modal-step1__error-nickname"> Пароль не должен совпадать с Никнеймом </div>
+            <label for="modal-nickname" class="modal-step1__label">Никнейм</label>
+            <input class="modal-step1__input" type="text" id="modal-nickname" required>
 
-          <label for="repeat-password" class="modal-step1__label">Пароль еще раз</label>
-          <input class="modal-step1__input" type="text" id="repeat-password" required>
-          <div class="modal-step1__error-repeat"> Введённые пароли не совпадают </div>
+            <div class="error-nickname error-form"></div>
 
-          <input class="visually-hidden modal-step1__checkbox" type="checkbox" id="modal-agree" name="agree" checked>
-          <label class="modal-step1__label-checkbox" for="modal-agree">Я принимаю условия
-          <a href="about:blank" class="modal-step1__link" target="_blank" > Пользовательского соглашения </a> </label>
+            <label for="modal-password" class="modal-step1__label label-password">Пароль</label>
+            <input class="modal-step1__input" type="password" id="modal-password" required>
 
-          <button class="modal-step1__button button" type="button"> Зарегистрироваться </button>
+            <p class="modal-step1__require-text"> Пароль должен содержать:</p>
+            <ul class="modal-step1__require-list">
+              <li class="modal-step1__require-item">от 6 до 32 символов</li>
+              <li class="modal-step1__require-item">цифру</li>
+              <li class="modal-step1__require-item">заглавную и строчкую буквы</li>
+            </ul>
+
+            <div class="error-password error-form"> </div>
+
+            <label for="repeat-password" class="modal-step1__label label-repeat">Пароль еще раз</label>
+            <input class="modal-step1__input input-repeat" type="password" id="repeat-password" required>
+
+            <div class="error-repeat error-form"></div>
+
+            <input class="visually-hidden modal-step1__checkbox" type="checkbox" id="modal-agree" name="agree" required>
+            <label class="modal-step1__label-checkbox" for="modal-agree">Я принимаю условия
+            <a href="about:blank" class="modal-step1__link" target="_blank" > Пользовательского соглашения </a> </label>
+
+            <button class="modal-step1__button button" type="button"> Далее </button>
+          </div>
+
+
+
+          <div class="modal-step2 modal-step--close">
+            <fieldset class="modal-step2__fieldset sex-fieldset">
+              <legend class="modal-step2__sex"> Выберите пол </legend>
+              <ul class="modal-step2__sex-list">
+                <li class="modal-step2__sex-item">
+                  <input type="radio" class="visually-hidden modal-step2__input" name="sex" value="men" id="men-sex">
+                  <label for="men-sex"> Мужской </label>
+                </li>
+                <li class="modal-step2__sex-item">
+                  <input type="radio" class="visually-hidden modal-step2__input" name="sex" value="women" id="women-sex">
+                  <label for="women-sex"> Женский </label>
+                </li>
+              </ul>
+            </fieldset>
+
+            <fieldset class="modal-step2__fieldset education-fieldset">
+              <legend class="modal-step2__education"> Укажите ваше образование: </legend>
+              <ul class="modal-step2__education-list">
+                <li class="modal-step2__education-item">
+                  <input type="radio" class="visually-hidden modal-step2__radio" name="education" value="incomplete-secondary" id="in-secondary">
+                  <label for="in-secondary"> Незаконченное среднее </label>
+                </li>
+                <li class="modal-step2__education-item">
+                  <input type="radio" class="visually-hidden modal-step2__input" name="education" value="secondary" id="secondary">
+                  <label for="secondary"> Среднее </label>
+                </li>
+                <li class="modal-step2__education-item">
+                  <input type="radio" class="visually-hidden modal-step2__input" name="education" value="incomplete-higher" id="in-higher">
+                  <label for="in-higher"> Незаконченное высшее </label>
+                </li>
+                <li class="modal-step2__education-item">
+                  <input type="radio" class="visually-hidden modal-step2__input" name="education" value="higher" id="higher">
+                  <label for="higher"> Высшее </label>
+                </li>
+                <li class="modal-step2__education-item">
+                  <input type="radio" class="visually-hidden modal-step2__input" name="education" value="scientific-degree" id="degree">
+                  <label for="degree"> Ученая степень </label>
+                </li>
+              </ul>
+            </fieldset>
+
+            <fieldset class="modal-step2__fieldset">
+              <legend class="modal-step2__yourserlf"> Расскажите о себе: </legend>
+              <textarea class="modal-step2__textarea" id="form-textarea"></textarea>
+              <label for="form-textarea" class="visually-hidden"></label>
+            </fieldset>
+
+            <fieldset class="modal-step2__fieldset rubric-fieldset">
+              <legend class="modal-step2__rubric"> Выберите рубрику на которую вы хотели бы подписаться: </legend>
+                <ul class="modal-step2__rubric-list">
+                <li class="modal-step2__rubric-item">
+                  <input type="checkbox" class="visually-hidden modal-step2__input" name="policy" value="policy" id="policy">
+                  <label for="policy"> Политика </label>
+                </li>
+                <li class="modal-step2__rubric-item">
+                  <input type="checkbox" class="visually-hidden modal-step2__input" name="economy" value="economy" id="economy">
+                  <label for="economy"> Экономика </label>
+                </li>
+                <li class="modal-step2__rubric-item">
+                  <input type="checkbox" class="visually-hidden modal-step2__input" name="incident" value="incident" id="incident">
+                  <label for="incident"> Происшествия </label>
+                </li>
+                <li class="modal-step2__rubric-item">
+                  <input type="checkbox" class="visually-hidden modal-step2__input" name="sport" value="sport" id="sport">
+                  <label for="sport"> Спорт </label>
+                </li>
+                <li class="modal-step2__rubric-item">
+                  <input type="checkbox" class="visually-hidden modal-step2__input" name="science" value="science" id="science">
+                  <label for="science"> Наука </label>
+                </li>
+              </ul>
+            </fieldset>
+
+            <button class="modal-step2__button button" type="submit"> Зарегистрироваться </button>
+          </div>
         </form>
 
       </div>
     </div>
   </div>
+  <script src="js/script.js"></script>
 </body>
 </html>

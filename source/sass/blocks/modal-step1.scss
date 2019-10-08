@@ -11,31 +11,32 @@
   display: none;
 }
 
-.overlay-modal--open {
-  display: block;
-}
-
-.modal-step1 {
+.modal {
   position: absolute;
   width: 480px;
-  top: 138px;
+  top: 50%;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, -50%);
   z-index: 100;
   background-color: $white-color;
 }
 
-.modal-step1__wrap {
-  padding: 39px 41px 0 39px;
+.modal__wrap {
+  padding: 41px 41px 40px 39px;
   position: relative;
   display: flex;
   flex-wrap: wrap;
 }
 
-.modal-step1__form {
+.modal__form {
+  width: 100%;
+}
+
+.modal-step1 {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
+  width: 100%;
 }
 
 .modal-step1__require-list {
@@ -44,7 +45,7 @@
   padding: 0;
 }
 
-.modal-step1__title {
+.modal__title {
   font-family: $roboto;
   font-weight: 400;
   font-size: 24px;
@@ -53,7 +54,7 @@
   margin: 0;
 }
 
-.modal-step1__close {
+.modal__close {
   position: absolute;
   background: url("../img/close.svg") center no-repeat;
   border: none;
@@ -75,4 +76,150 @@
   font-weight: 700;
   font-size: 14px;
   line-height: 16px;
+  margin: 25px 0 10px 0;
+}
+
+.label-password {
+  margin: 28px 0 10px 0;
+}
+
+.label-repeat {
+  margin: 13px 0 10px 0;
+}
+
+.modal-step1__input {
+  width: 100%;
+  padding: 11px 20px;
+  color: $black-color;
+  font-family: $roboto;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  border: 1px solid #dddddd;
+  margin-bottom: 5px;
+
+  &:focus {
+    border: 1px solid #82b3d9;
+  }
+}
+
+.input-error {
+  border: 1px solid $red-color;
+}
+
+.modal-step1__require-text {
+  margin: 5px 0;
+  font-family:$roboto;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 14px;
+  color: $gray-color;
+}
+
+.modal-step1__require-item {
+  position: relative;
+  font-family: $roboto;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  color: $gray-color;
+  padding-left: 19px;
+  margin: 0 0 5px 0;
+
+  &::before {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 14px;
+    height: 14px;
+    bottom: 0;
+    left: 0;
+    background: url("../img/default-state.svg") center no-repeat;
+  }
+}
+
+.modal-step1__require-item--error {
+    color: $red-color;
+     &::before {
+    background: url("../img/error-state.svg") center no-repeat;
+  }
+}
+
+.modal-step1__require-item--ok {
+    color: $green-color;
+     &::before {
+    background: url("../img/ok-state.svg") center no-repeat;
+  }
+}
+
+.error {
+  font-family: $roboto;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  color: $red-color;
+}
+
+.input-repeat {
+  margin: 0 0 4px 0;
+}
+
+.input-error {
+  border: 1px solid #9f2b11;
+}
+
+.modal-step1__label-checkbox {
+  font-family: $roboto;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  color: $black-color;
+  position: relative;
+  padding-left: 18px;
+  margin: 18px 0 40px;
+
+  &::before {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 12px;
+    height: 12px;
+    left: 0;
+    bottom: 2px;
+    background: url("../img/checkbox-default.svg") center no-repeat;
+  }
+
+  &:hover:before,
+  &:focus:before {
+   background: url("../img/checkbox-hover.svg") center no-repeat;
+  }
+
+}
+
+.modal-step1__checkbox:checked + .modal-step1__label-checkbox::after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 12px;
+  height: 12px;
+  left: 0;
+  bottom: 2px;
+  background: url("../img/checkbox-checked.svg") center no-repeat;
+}
+
+.modal-step1__link {
+  color: $blue-color;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.modal-step1__button {
+  width: 200px;
+  margin: 0 auto;
+}
+
+.modal-step1__button:disabled {
+  background: #82b3d9;
 }

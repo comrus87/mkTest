@@ -1,0 +1,95 @@
+.modal-step2 {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  width: 100%;
+}
+
+.modal-step2__fieldset {
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+
+.modal-step2 legend {
+  font-family: $roboto;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 16px;
+}
+
+.modal-step2 ul {
+  list-style: none;
+  margin: 7px 0;
+};
+
+.modal-step2 li {
+  font-family: $roboto;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  color: $gray-color;
+  margin-bottom: 5px;
+};
+
+.modal-step2__textarea {
+  width: 100%;
+  border: 1px solid $gray-color;
+  outline: none;
+  min-height: 120px;
+  resize: none;
+  padding: 14px 16px;
+  border-radius: 5px;
+  margin: 7px 0;
+  font-family: $roboto;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  color: $gray-color;
+}
+
+.sex-fieldset {
+  margin-top: 15px;
+}
+
+.modal-step2__fieldset label {
+  display: block;
+  position: relative;
+  cursor: pointer;
+
+  &::before {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 12px;
+    height: 12px;
+    left: -20px;
+    bottom: 2px;
+    background: url("../img/checkbox-default.svg") center no-repeat;
+  }
+
+  &:hover:before,
+  &:focus:before {
+   background: url("../img/checkbox-hover.svg") center no-repeat;
+  }
+}
+
+.modal-step2__input:checked + label::after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 12px;
+  height: 12px;
+  left: -20px;
+  bottom: 2px;
+  background: url("../img/checkbox-checked.svg") center no-repeat;
+}
+
+.modal-step2__button {
+  width: 400px;
+  margin: 25px auto 0;
+}
+
+.modal-step--close {
+  display: none;
+}

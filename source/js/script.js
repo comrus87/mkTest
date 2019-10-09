@@ -54,6 +54,10 @@ let valuesForm = {
 btnMain.addEventListener('click', function () {
     overlay.classList.remove('overlay-modal--close');
     document.body.style.overflow = 'hidden';
+    email.addEventListener('blur', onEmailValidate);
+    nickname.addEventListener('blur', onNicknameValidate);
+    passwordRepeat.addEventListener('blur', onPasswordRepeatValidate);
+    password.addEventListener('blur', onPasswordValidate);
 });
 
 const closeModal = function () {
@@ -86,6 +90,15 @@ const closeModal = function () {
       valuesForm[key] = null;
     }
 
+    email.removeEventListener('input', onEmailValidate);
+    email.removeEventListener('blur', onEmailValidate);
+    nickname.removeEventListener('input', onNicknameValidate);
+    nickname.removeEventListener('blur', onNicknameValidate);
+    passwordRepeat.removeEventListener('blur', onPasswordRepeatValidate);
+    passwordRepeat.removeEventListener('input', onPasswordRepeatValidate);
+    password.removeEventListener('blur', onPasswordValidate);
+    password.removeEventListener('input', onPasswordValidate);
+
     btnNext.disabled = true;
 }
 
@@ -100,6 +113,8 @@ const onEmailValidate = function  () {
     errorEmail.className = "error";
     email.classList.add('input-error');
     isValid.email = false;
+    email.removeEventListener('blur', onEmailValidate);
+    email.addEventListener('input', onEmailValidate);
    } else {
       errorEmail.innerHTML = '';
       email.classList.remove('input-error');
@@ -111,8 +126,6 @@ const onEmailValidate = function  () {
    valuesForm.email = email.value.trim();
 }
 
-email.addEventListener('input', onEmailValidate);
-
 const onNicknameValidate = function () {
   const value = nickname.value.trim();
   const reg = /^[a-zA-Z][a-zA-Z0-9_;]{2,40}$/;
@@ -123,6 +136,8 @@ const onNicknameValidate = function () {
     errorNickname.innerHTML = ERROR_NICKNAME_MESSAGE;
     nickname.classList.add('input-error');
     isValid.nickname = false;
+    nickname.removeEventListener('blur', onNicknameValidate);
+    nickname.addEventListener('input', onNicknameValidate);
 
   } else {
     errorNickname.innerHTML = '';
@@ -134,8 +149,6 @@ const onNicknameValidate = function () {
 
   valuesForm.nickname = value;
 }
-
-nickname.addEventListener('input', onNicknameValidate);
 
 const onPasswordValidate = function () {
   const value = password.value.trim();
@@ -162,6 +175,8 @@ const onPasswordValidate = function () {
     if (require.classList.contains('modal-step1__require-item--ok')) {
       require.classList.remove('modal-step1__require-item--ok');
       require.classList.add('modal-step1__require-item--error');
+      password.removeEventListener('blur', onPasswordValidate);
+      password.addEventListener('input', onPasswordValidate);
     }
       password.classList.add('input-error');
   }
@@ -196,6 +211,8 @@ const onPasswordValidate = function () {
     errorPassword.innerHTML = ERROR_PASSWORD_MESSAGE;
     password.classList.add('input-error');
     errors.noRepeat = false;
+    password.removeEventListener('blur', onPasswordValidate);
+    password.addEventListener('input', onPasswordValidate);
   } else {
     errorPassword.innerHTML = '';
     errors.noRepeat = true;
@@ -204,6 +221,8 @@ const onPasswordValidate = function () {
   if (passwordRepeat.value != '' && password.value != passwordRepeat.value ) {
     errorRepeat.innerHTML = ERROR_REPEAT_MESSAGE;
     isValid.passwordRepeat = false;
+    password.removeEventListener('blur', onPasswordValidate);
+    password.addEventListener('input', onPasswordValidate);
   } else {
     errorRepeat.innerHTML = '';
     isValid.passwordRepeat = true;
@@ -213,7 +232,6 @@ const onPasswordValidate = function () {
   valuesForm.password = value;
 }
 
-password.addEventListener('input', onPasswordValidate);
 
 const onPasswordRepeatValidate = function () {
   const value = passwordRepeat.value.trim();
@@ -223,6 +241,8 @@ const onPasswordRepeatValidate = function () {
     errorRepeat.innerHTML = ERROR_REPEAT_MESSAGE;
     passwordRepeat.classList.add('input-error');
     isValid.passwordRepeat = false;
+    passwordRepeat.removeEventListener('blur', onPasswordRepeatValidate);
+    passwordRepeat.addEventListener('input', onPasswordRepeatValidate);
   } else {
     errorRepeat.innerHTML = '';
     passwordRepeat.classList.remove('input-error');
@@ -231,8 +251,6 @@ const onPasswordRepeatValidate = function () {
 
    (value == '') ? isValid.passwordRepeat = false : true;
 }
-
-passwordRepeat.addEventListener('input', onPasswordRepeatValidate);
 
 
 document.addEventListener('change', function () {
